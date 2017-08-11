@@ -235,7 +235,7 @@ postgres@PUBLIC_IP~$ exit
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo service apache2 restart
 ```
 ## Update FB and Google Plus oauth credentials
-- Go to [Facebooc developers](https://developers.facebook.com) and change the site url for your app and Valid OAuth redirect URIs
+- Go to [Facebook developers](https://developers.facebook.com) and change the site url for your app and Valid OAuth redirect URIs
 - Go [Google Plus](https://console.developers.google.com) and change the oauth credentials in you app console
 - After changes download new JSON files and update your fb_client secrets.json and client_secrets.json 
 - Change in application files from ```oauth_flow = flow_from_clientsecrets('/client_secrets.json', scope='')``` to ```oauth_flow = flow_from_clientsecrets('/var/www/catalog/catalog/client_secrets.json', scope='')```
