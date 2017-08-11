@@ -9,14 +9,14 @@ The application hosted on this intance is from the Udacity project: [Item Catalo
 * SSH Port: 2200
 
 ## Configuration summary
-# Get your server
+## Get your server
 - Start a new Ubuntu Linux server instance on Amazon Lightsail:
     * Log in [Amazon Lightsail](https://www.amazon.com/ap/signin?openid.assoc_handle=aws&openid.return_to=https%3A%2F%2Fsignin.aws.amazon.com%2Foauth%3Fresponse_type%3Dcode%26client_id%3Darn%253Aaws%253Aiam%253A%253A015428540659%253Auser%252Fparksidewebapp%26redirect_uri%3Dhttps%253A%252F%252Flightsail.aws.amazon.com%252Fls%252Fwebapp%253Fstate%253DhashArgs%252523%2526isauthcode%253Dtrue%26noAuthCookie%3Dtrue&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&action=&disableCorpSignUp=&clientContext=&marketPlaceId=&poolName=&authCookies=&pageId=aws.ssop&siteState=registered%2Cen_US&accountStatusPolicy=P1&sso=&openid.pape.preferred_auth_policies=MultifactorPhysical&openid.pape.max_auth_age=120&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&server=%2Fap%2Fsignin%3Fie%3DUTF8&accountPoolAlias=&forceMobileApp=0&language=en_US&forceMobileLayout=0)
     * Create an instance. Choose an instance image: Ubuntu (choose "OS Only" and Ubuntu as the operating system.)
     * Choose your instance plan.
     * Give your instance a hostname.
     * Wait for it to start up.
-# Give grader access
+## Give grader access
 - Create a new user account named grader
 ```
 $ sudo adduser grader
@@ -29,7 +29,7 @@ Add the following line below 'root ALL=(ALL:ALL) ALL':
 ```
 grader ALL=(ALL:ALL) ALL
 ```
-# Secure your server
+## Secure your server
 - Update all currently installed packages:
 ```
 $ sudo apt-get update
@@ -61,7 +61,7 @@ UsePAM yes
 UseDNS no
 AllowUsers grader
 ```
-# Configure Firewall in AWS Lightsail
+## Configure Firewall in AWS Lightsail
 -In your AWS Lightsail instance, click on the Netwroking tab
 - Change Port configurations:
 ```
@@ -70,7 +70,7 @@ HTTP	       TCP	     80
 Custom	     UDP	     123	
 Custom	     TCP	     2200
 ```
-# Create an SSH key pair for grader using the ssh-keygen tool
+## Create an SSH key pair for grader using the ssh-keygen tool
 - On Lightsail console enter:
 ```
 $ sudo su - grader
@@ -98,7 +98,7 @@ $ sudo nano /etc/ssh/sshd_config
 PasswordAuthentication no
 ```
 
-# Configure UFW, Uncomplicated Firewall
+## Configure UFW, Uncomplicated Firewall
 ```
  grader@PUBLIC_IP:~$ sudo ufw default deny incoming
  grader@PUBLIC_IP:~$ sudo ufw default allow outgoing
@@ -120,18 +120,18 @@ To                         Action      From
 2200/tcp (v6)              ALLOW       Anywhere (v6)             
 123/udp (v6)               ALLOW       Anywhere (v6)    
 ```
-# Configure the local timezone to UTC
+## Configure the local timezone to UTC
 ```
 grader@PUBLIC_IP:~$ sudo timedatectl set-timezone UTC
 grader@PUBLIC_IP:~$ sudo apt-get install ntp
 ```
-# Install and configure Apache to serve a Python mod_wsgi application
+## Install and configure Apache to serve a Python mod_wsgi application
 ```
 grader@PUBLIC_IP:~$ sudo apt-get install apache2
 grader@PUBLIC_IP:~$ sudo apt-get install python-setuptools libapache2-mod-wsgi
 grader@PUBLIC_IP:~$ sudo service apache2 restart
 ```
-# Install git
+## Install git
 ```
 grader@PUBLIC_IP:~$ sudo apt-get install git
 grader@PUBLIC_IP:~$ sudo apt-get install libapache2-mod-wsgi python-dev
@@ -143,7 +143,7 @@ grader@PUBLIC_IP:/var/catalog$ cd catalog
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo mkdir static templates models db
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo mv application.py __init__.py
 ```
-# Install Pip, Flask, and virtualenv
+## Install Pip, Flask, and virtualenv
 ```
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo apt-get install python-pip
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo pip install virtualenv
@@ -153,7 +153,7 @@ grader@PUBLIC_IP:/var/www/catalog/catalog$ source venv/bin/activate
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ pip install Flask
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ deactivate
 ```
-# Configure Apache mod-wsgi module:
+## Configure Apache mod-wsgi module:
 ```
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo nano /etc/apache2/sites-available/catalog.conf
 
@@ -177,7 +177,7 @@ grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo nano /etc/apache2/sites-availabl
 
 </VirtualHost>
 ```
-# Create the mod-wsgi file:
+## Create the mod-wsgi file:
 ```
 grader@PUBLIC_IP:/var/www/catalog/$ sudo nano /var/www/catalog/catalog.wsgi
 
@@ -192,18 +192,18 @@ sys.path.insert(0,"/var/www/catalog/catalog/")
 from __init__ import app as application
 application.secret_key == 'Your application secret key'
 ```
-# Cloning the Item Catalog project
+## Cloning the Item Catalog project
 ```
 sudo git clone https://github.com/j-sho/fullstack-nanodegree-vm.git
 ```
-# Create a .htaccess file from the catalog/ directory
+## Create a .htaccess file from the catalog/ directory
 ```
 grader@PUBLIC_IP:/var/www/catalog$ sudo nano .htaccess
 
 #Add following
 RedirectMatch 404 /\.git
 ```
-# Install necessary dependencies in the virtual environment
+## Install necessary dependencies in the virtual environment
 ```
 grader@PUBLIC_IP:/var/www/catalog/catalog$ source venv/bin/activate
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo apt-get install python-setuptools
@@ -214,7 +214,7 @@ grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo pip install httplib2
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo pip install oauth2client
 grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo service apache2 restart
 ```
-# Install Postrgresql and set up database
+## Install Postrgresql and set up database
 ```
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo apt-get install postrgresql postgresql-contrib
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo su - postgres
@@ -234,7 +234,7 @@ postgres@PUBLIC_IP~$ exit
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ python db/database_setup.py
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo service apache2 restart
 ```
-# Update FB and Google Plus oauth credentials
+## Update FB and Google Plus oauth credentials
 - Go to [Facebooc developers](https://developers.facebook.com) and change the site url for your app and Valid OAuth redirect URIs
 - Go [Google Plus](https://console.developers.google.com) and change the oauth credentials in you app console
 - After changes download new JSON files and update your fb_client secrets.json and client_secrets.json 
@@ -243,7 +243,7 @@ postgres@PUBLIC_IP~$ exit
 ```
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo service apache2 restart
 ```
-# the not JSON serializable
+## the not JSON serializable
 - If you will face the same error as I, please type the following three commands into your vagrant terminal:
 ```
 sudo pip install werkzeug==0.8.3
