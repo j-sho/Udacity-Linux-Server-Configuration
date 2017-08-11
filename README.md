@@ -4,14 +4,14 @@
 Installation of an Ubuntu server instance to host a Flask application.
 The application hosted on this intance is from the Udacity project: [Item Catalog](https://github.com/j-sho/fullstack-nanodegree-vm/tree/master/vagrant/catalog).
 
-Public IP: [http://35.158.50.123/](http://35.158.50.123/)
-DNS: [http://ec2-35-158-50-123.eu-central-1.compute.amazonaws.com](http://ec2-35-158-50-123.eu-central-1.compute.amazonaws.com)
-SSH Port: 2200
+* Public IP: [http://35.158.50.123/](http://35.158.50.123/)
+* DNS: [http://ec2-35-158-50-123.eu-central-1.compute.amazonaws.com](http://ec2-35-158-50-123.eu-central-1.compute.amazonaws.com)
+* SSH Port: 2200
 
 ## Configuration summary
 # Get your server
 - Start a new Ubuntu Linux server instance on Amazon Lightsail:
-    * Log in [Amazon Lightsail] (https://www.amazon.com/ap/signin?openid.assoc_handle=aws&openid.return_to=https%3A%2F%2Fsignin.aws.amazon.com%2Foauth%3Fresponse_type%3Dcode%26client_id%3Darn%253Aaws%253Aiam%253A%253A015428540659%253Auser%252Fparksidewebapp%26redirect_uri%3Dhttps%253A%252F%252Flightsail.aws.amazon.com%252Fls%252Fwebapp%253Fstate%253DhashArgs%252523%2526isauthcode%253Dtrue%26noAuthCookie%3Dtrue&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&action=&disableCorpSignUp=&clientContext=&marketPlaceId=&poolName=&authCookies=&pageId=aws.ssop&siteState=registered%2Cen_US&accountStatusPolicy=P1&sso=&openid.pape.preferred_auth_policies=MultifactorPhysical&openid.pape.max_auth_age=120&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&server=%2Fap%2Fsignin%3Fie%3DUTF8&accountPoolAlias=&forceMobileApp=0&language=en_US&forceMobileLayout=0)
+    * Log in [Amazon Lightsail](https://www.amazon.com/ap/signin?openid.assoc_handle=aws&openid.return_to=https%3A%2F%2Fsignin.aws.amazon.com%2Foauth%3Fresponse_type%3Dcode%26client_id%3Darn%253Aaws%253Aiam%253A%253A015428540659%253Auser%252Fparksidewebapp%26redirect_uri%3Dhttps%253A%252F%252Flightsail.aws.amazon.com%252Fls%252Fwebapp%253Fstate%253DhashArgs%252523%2526isauthcode%253Dtrue%26noAuthCookie%3Dtrue&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&action=&disableCorpSignUp=&clientContext=&marketPlaceId=&poolName=&authCookies=&pageId=aws.ssop&siteState=registered%2Cen_US&accountStatusPolicy=P1&sso=&openid.pape.preferred_auth_policies=MultifactorPhysical&openid.pape.max_auth_age=120&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&server=%2Fap%2Fsignin%3Fie%3DUTF8&accountPoolAlias=&forceMobileApp=0&language=en_US&forceMobileLayout=0)
     * Create an instance. Choose an instance image: Ubuntu (choose "OS Only" and Ubuntu as the operating system.)
     * Choose your instance plan.
     * Give your instance a hostname.
@@ -235,8 +235,8 @@ postgres@PUBLIC_IP~$ exit
 (venv) grader@PUBLIC_IP:/var/www/catalog/catalog$ sudo service apache2 restart
 ```
 # Update FB and Google Plus oauth credentials
-- Go to [Facebooc developers] (https://developers.facebook.com) and change the site url for your app and Valid OAuth redirect URIs
-- Go [Google Plus] (https://console.developers.google.com) and change the oauth credentials in you app console
+- Go to [Facebooc developers](https://developers.facebook.com) and change the site url for your app and Valid OAuth redirect URIs
+- Go [Google Plus](https://console.developers.google.com) and change the oauth credentials in you app console
 - After changes download new JSON files and update your fb_client secrets.json and client_secrets.json 
 - Change in application files from ```oauth_flow = flow_from_clientsecrets('/client_secrets.json', scope='')``` to ```oauth_flow = flow_from_clientsecrets('/var/www/catalog/catalog/client_secrets.json', scope='')```
 - Restart Apache server
@@ -251,7 +251,7 @@ sudo pip install flask==0.9
 sudo pip install Flask-Login==0.1.3
 ```
 ## Resources
-- [DigitalOcean] (https://www.digitalocean.com/community/tutorials/)
-- [StackOverflow] (https://stackoverflow.com)
-- [Udacity Forum] (https://discussions.udacity.com)
-- [Reverse DNS Lookup] (https://remote.12dt.com/lookup.php)
+- [DigitalOcean](https://www.digitalocean.com/community/tutorials/)
+- [StackOverflow](https://stackoverflow.com)
+- [Udacity Forum](https://discussions.udacity.com)
+- [Reverse DNS Lookup](https://remote.12dt.com/lookup.php)
