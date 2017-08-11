@@ -255,7 +255,3 @@ sudo pip install Flask-Login==0.1.3
 - [StackOverflow] (https://stackoverflow.com)
 - [Udacity Forum] (https://discussions.udacity.com)
 - [Reverse DNS Lookup] (https://remote.12dt.com/lookup.php)
-
-
-
-
