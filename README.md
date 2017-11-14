@@ -2,10 +2,10 @@
 
 ## Project Overview
 Installation of an Ubuntu server instance to host a Flask application.
-The application hosted on this intance is from the Udacity project: [Item Catalog](https://github.com/j-sho/fullstack-nanodegree-vm/tree/master/vagrant/catalog).
+The application hosted on this intance is from the Udacity project: [Item Catalog](https://github.com/j-sho/Udacity_Project5/tree/master/vagrant/catalog).
 
-* Public IP: [http://35.158.85.212/](http://35.158.85.212/)
-* DNS: [http://ec2-35-158-85-212.eu-central-1.compute.amazonaws.com](http://ec2-35-158-85-212.eu-central-1.compute.amazonaws.com)
+* ~~Public IP: http://35.158.85.212/~~
+* ~~DNS: http://ec2-35-158-85-212.eu-central-1.compute.amazonaws.com~~
 * SSH Port: 2200
 
 ## Configuration summary
